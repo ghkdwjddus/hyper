@@ -168,7 +168,7 @@ services:
       - CORE_PEER_CHAINCODEADDRESS=peer1.org2.example.com:10052
       - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:10052
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org2.example.com:10051
-      - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.org2.example.com:10051
+      - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org2.example.com:9051
       - CORE_PEER_LOCALMSPID=Org2MSP
       # CouchDB variabes
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
