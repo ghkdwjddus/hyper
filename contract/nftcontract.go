@@ -219,6 +219,21 @@ func (c *NftChaincode) AI(ctx contractapi.TransactionContextInterface, Owner str
 	return nil
 }
 
+func (c *NftChaincode) ReadAIinfo(ctx contractapi.TransactionContextInterface, Owner string) (string, error) {
+	lookup, err := ctx.GetStub().GetState(Owner)
+	if err != nil {
+		return "", fmt.Errorf("\"Error\":\"User does not exist: " + Owner + "\"")
+	}
+	if lookup == nil {
+		return "", fmt.Errorf("%s does not exist", Owner)
+	}
+
+	return string(lookup[:]), nil
+
+}
+
+
+
 
 
 ////////////////////////////////// User(라벨러) //////////////////////////////////

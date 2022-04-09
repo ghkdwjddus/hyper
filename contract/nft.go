@@ -28,15 +28,15 @@ type Nft struct {
 }
 
 type WalletInfo struct{
-	Owner string `json:"owner"`
-	Count float64 `json:"count"`
+	Owner 	string `json:"owner"`
+	Count 	float64 `json:"count"`
 	AiInfos []AiInfo `json:"aiinfos"`
 }
 
 type AiInfo struct{
-	AiTitle string `json:"aititle"`
-	TokenId string `json:"tokenId"`
-	AiSum float64 `json:"aisum"`
+	AiTitle 	 string `json:"aititle"`
+	TokenId 	 string `json:"tokenId"`
+	AiSum 		 float64 `json:"aisum"`
 	LearningData float64 `json:"learningdata"`
 }
 
