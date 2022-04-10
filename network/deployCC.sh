@@ -209,7 +209,7 @@ cat log.txt
 sleep 3
 
 ## TEST1 : Invoking the chaincode
-infoln "TEST1 : Invoking the chaincode"
+infoln "TEST2 : Invoking the chaincode"
 set -x
 peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile $ORDERER_CA -C $CHANNEL_NAME -n ${CC_NAME} $PEER_CONN_PARMS -c '{"function":"Wallet","Args":["testUser"]}' >&log.txt
 { set +x; } 2>/dev/null
@@ -217,15 +217,24 @@ cat log.txt
 sleep 3
 
 ## TEST1 : Invoking the chaincode
-infoln "TEST1 : Invoking the chaincode"
+infoln "TEST3 : Invoking the chaincode"
 set -x
 peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile $ORDERER_CA -C $CHANNEL_NAME -n ${CC_NAME} $PEER_CONN_PARMS -c '{"function":"AI","Args":["testUser", "hi1", "test", "1", "100"]}' >&log.txt
 { set +x; } 2>/dev/null
 cat log.txt
 sleep 3
 
+
+## TEST2 : Query the chaincode
+infoln "TEST4 : Query the chaincode"
+set -x
+peer chaincode query -C $CHANNEL_NAME -n ${CC_NAME} -c '{"Args":["ReadAIinfo", "testUser"]}' >&log.txt
+{ set +x; } 2>/dev/null
+cat log.txt
+
+
 ## TEST1 : Invoking the chaincode
-infoln "TEST1 : Invoking the chaincode"
+infoln "TEST5 : Invoking the chaincode"
 set -x
 peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile $ORDERER_CA -C $CHANNEL_NAME -n ${CC_NAME} $PEER_CONN_PARMS -c '{"function":"AddUser","Args":["testUser1"]}' >&log.txt
 { set +x; } 2>/dev/null
@@ -234,7 +243,7 @@ sleep 3
 
 
 ## TEST1 : Invoking the chaincode
-infoln "TEST1 : Invoking the chaincode"
+infoln "TEST6 : Invoking the chaincode"
 set -x
 peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile $ORDERER_CA -C $CHANNEL_NAME -n ${CC_NAME} $PEER_CONN_PARMS -c '{"function":"AddScore","Args":["testUser1", "title1", "30"]}' >&log.txt
 { set +x; } 2>/dev/null
@@ -242,7 +251,7 @@ cat log.txt
 sleep 3
 
 ## TEST2 : Query the chaincode
-infoln "TEST2 : Query the chaincode"
+infoln "TEST7 : Query the chaincode"
 set -x
 peer chaincode query -C $CHANNEL_NAME -n ${CC_NAME} -c '{"Args":["ReadScore", "testUser1"]}' >&log.txt
 { set +x; } 2>/dev/null
