@@ -241,7 +241,7 @@ peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.exa
 cat log.txt
 sleep 3
 
-test
+
 ## TEST1 : Invoking the chaincode
 infoln "TEST6 : Invoking the chaincode"
 set -x
