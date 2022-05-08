@@ -39,14 +39,20 @@ sleep 2
 # Create crypto material using Fabric CA
 . scripts/registerEnroll.sh
 
-subinfoln "Create Org1 peer0 crypto material"
-createOrg1peer0
+subinfoln "Create Peer0 Org1 crypto material"
+createPeer0Org1
 
-subinfoln "Create Org2 peer0 crypto material"
-createOrg2peer0
+subinfoln "Create Peer1 Org1 crypto material"
+createPeer1Org1
 
-subinfoln "Create Org2 peer1 crypto material"
-createOrg2peer1
+subinfoln "Create Peer0 Org2 crypto material"
+createPeer0Org2
+
+subinfoln "Create Peer1 Org2 crypto material"
+createPeer1Org2
+
+# subinfoln "Create Org3 crypto material"
+# createOrg3
 
 subinfoln "Create Orderer crypto material"
 createOrderer
@@ -54,7 +60,7 @@ createOrderer
 # Generate orderer system channel genesis block.
 infoln "------------- Generating Orderer Genesis block"
 set -x
-configtxgen -profile ThreeOrgsOrdererGenesis -channelID system-channel -outputBlock ./system-genesis-block/genesis.block
+configtxgen -profile TwoOrgsOrdererGenesis -channelID system-channel -outputBlock ./system-genesis-block/genesis.block
 { set +x; } 2>/dev/null
 
 # Bring up the peer and orderer nodes using docker compose.

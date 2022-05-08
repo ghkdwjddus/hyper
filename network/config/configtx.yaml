@@ -103,7 +103,33 @@ Organizations:
         AnchorPeers:
             - HOST: peer0.org2.example.com
               PORT: 9051
-        
+
+    # - &Org3
+    #     # DefaultOrg defines the organization which is used in the sampleconfig
+    #     # of the fabric.git development environment
+    #     Name: Org3MSP
+
+    #     # ID to load the MSP definition as
+    #     ID: Org3MSP
+
+    #     MSPDir: ../organizations/peerOrganizations/org3.example.com/msp
+
+    #     Policies:
+    #         Readers:
+    #             Type: Signature
+    #             Rule: "OR('Org3MSP.admin', 'Org3MSP.peer', 'Org3MSP.client')"
+    #         Writers:
+    #             Type: Signature
+    #             Rule: "OR('Org3MSP.admin', 'Org3MSP.client')"
+    #         Admins:
+    #             Type: Signature
+    #             Rule: "OR('Org3MSP.admin')"
+    #         Endorsement:
+    #             Type: Signature
+    #             Rule: "OR('Org3MSP.peer')"
+    #     AnchorPeers:
+    #         - HOST: peer0.org2.example.com
+    #           PORT: 11051
 
 ################################################################################
 #
@@ -308,7 +334,7 @@ Channel: &ChannelDefaults
 ################################################################################
 Profiles:
 
-    ThreeOrgsOrdererGenesis:
+    TwoOrgsOrdererGenesis:
         <<: *ChannelDefaults
         Orderer:
             <<: *OrdererDefaults
@@ -321,7 +347,8 @@ Profiles:
                 Organizations:
                     - *Org1
                     - *Org2
-    ThreeOrgsChannel:
+                    # - *Org3
+    TwoOrgsChannel:
         Consortium: SampleConsortium
         <<: *ChannelDefaults
         Application:
@@ -329,5 +356,6 @@ Profiles:
             Organizations:
                 - *Org1
                 - *Org2
+                # - *Org3
             Capabilities:
                 <<: *ApplicationCapabilities
