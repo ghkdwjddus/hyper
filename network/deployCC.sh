@@ -21,7 +21,7 @@ export FABRIC_CFG_PATH=${PWD}/config
 
 # CHANNEL_NAME="mychannel"
 CC_NAME="erc20"
-CC_SRC_PATH="../hyperledger-erc20/chaincode"
+CC_SRC_PATH="../../hyperledger-erc20/chaincode"
 CC_RUNTIME_LANGUAGE="golang"
 CC_VERSION="1"
 CHANNEL_NAME="mychannel"
